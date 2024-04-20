@@ -5,8 +5,4 @@ import com.yjkj.property_management.library.base.BaseViewModel;
 public class AiBedViewModel extends BaseViewModel {
 
 
-    public void initView(){
-
-    }
-
 }
