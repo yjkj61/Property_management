@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.item.SearchItemViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:text="@={viewModel.itemType}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_777777"
+            android:textSize="14dp"
+            android:layout_gravity="center_vertical"/>
+
+        <EditText
+            android:text="@={viewModel.editValue}"
+            editHintText="@{viewModel.editHint}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/color_AAAAAA"
+            android:background="@drawable/search_edit_item_bg_shape"
+            android:singleLine="true"
+            android:layout_marginStart="3dp"
+            android:paddingEnd="3dp"
+            android:ellipsize="end"
+            android:paddingStart="3dp"
+            android:textCursorDrawable="@drawable/search_edit_cursor_shape"
+            android:textSize="14dp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

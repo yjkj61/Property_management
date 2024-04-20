@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.FirstHomePageViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.FirstHomePageFragment.Click" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/number_of_employees_layout"
+        app:layout_constraintTop_toBottomOf="@+id/administrator_layout"
+        app:layout_constraintStart_toStartOf="@+id/administrator_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.14">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:onClick="@{()->click.workList()}"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/number_of_employees_layout_shape">
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="64dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/group_1_icon"/>
+
+            <TextView
+                android:id="@+id/text_1"
+                android:text="今日上班总人数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="18dp"
+                android:textColor="@color/white"
+                android:textSize="16dp"/>
+            <TextView
+                android:text="@{viewModel.employeesNumber}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text_1"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:onClick="@{()->click.serviceList()}"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/number_of_prople_served_layout_shape">
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="64dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/group_2_icon"/>
+            <TextView
+                android:id="@+id/text_2"
+                android:text="正在服务中人数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="18dp"
+                android:textColor="@color/white"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:text="@{viewModel.servingNumber}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text_2"
+                app:layout_constraintStart_toStartOf="@id/text_2"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.pay.dialog.PaymentQRCodeViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.page.pay.dialog.PaymentQRCodeDialog.Click" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/confirm_pay_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="确认充值"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <ImageButton
+                android:onClick="@{()->click.close()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="24dp"
+                android:minWidth="24dp"
+                android:padding="10dp"
+                android:background="@drawable/baseline_close"
+                app:layout_constraintTop_toTopOf="@id/confirm_pay_text"
+                app:layout_constraintBottom_toBottomOf="@id/confirm_pay_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="20dp"/>
+            <View
+                android:id="@+id/gray_cross_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_EFEFEF"
+                app:layout_constraintTop_toBottomOf="@id/confirm_pay_text"
+                android:layout_marginTop="10dp"/>
+
+            <include
+                android:visibility="@{viewModel.paymentIngVisibility}"
+                layout="@layout/payment_ing_layout"
+                bind:viewModel="@{viewModel}"
+                bind:click="@{click}"/>
+           <include
+               android:visibility="@{viewModel.paymentSuccessVisibility}"
+               layout="@layout/payment_success_layout"
+               bind:viewModel="@{viewModel}"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

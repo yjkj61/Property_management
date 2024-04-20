@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.item.OrderItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:onClick="@{()->viewModel.click()}"
+        android:layout_width="160dp"
+        android:layout_height="80dp">
+
+        <ImageView
+            loadSrc="@{viewModel.orderItemImage}"
+            android:id="@+id/item_order_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:text="@={viewModel.orderLabel}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/item_order_image"
+            app:layout_constraintStart_toEndOf="@id/item_order_image"
+            android:layout_marginStart="15dp"
+            android:textSize="18dp"
+            android:textColor="@color/color_777777"/>
+
+        <TextView
+            android:text="@={viewModel.orderCount}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_333333"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@id/item_order_image"
+            android:layout_marginStart="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/item_order_image"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

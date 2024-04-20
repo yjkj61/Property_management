@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.SecondHomePageViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.SecondHomePageFragment.Click" />
+        <variable
+            name="listener"
+            type="com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.SecondHomePageFragment.Listener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/condition_search_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.58">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            addRvScrollListener="@{listener.recyclerViewScrollChangeListener}"
+            dividerItemDecoration="@{viewModel.personalItemDecoration}"
+            items="@{viewModel.personalItems}"
+            itemBinding="@{viewModel.personalItemBinding}"
+            app:layoutManager="@{viewModel.personalGridLayoutManager}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

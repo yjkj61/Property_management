@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.FirstHomePageViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.FirstHomePageFragment.Click" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/warning_layout"
+        android:layout_width="580dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.24"
+        app:layout_constraintTop_toBottomOf="@+id/household_analysis_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/white_bg_10_dp_corner_bg_shape"
+        android:layout_marginTop="20dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            items="@{viewModel.serviceItems}"
+            itemBinding="@{viewModel.serviceItemBinding}"
+            app:layoutManager="@{viewModel.serviceLayoutManager}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

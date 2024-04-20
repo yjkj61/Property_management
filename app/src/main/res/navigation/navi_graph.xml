@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.yjkj.property_management.ui.main.frag.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="com.yjkj.property_management.ui.page.personal.PersonalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal"/>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.yjkj.property_management.ui.page.pay.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment"/>
+
+    <fragment
+        android:id="@+id/missedCallFragment"
+        android:name="com.yjkj.property_management.ui.page.missedcall.MissedCallFragment"
+        android:label="fragment_missed_call"
+        tools:layout="@layout/missed_calls_grid_layout"/>
+
+    <fragment
+        android:id="@+id/ownerListFragment"
+        android:name="com.yjkj.property_management.ui.page.ownerlist.OwnerListFragment"
+        android:label="fragment_owner_list"
+        tools:layout="@layout/fragment_owner_list" />
+</navigation>

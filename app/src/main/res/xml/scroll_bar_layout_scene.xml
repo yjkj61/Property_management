@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/scroll_bar_block"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/scroll_bar_block_shape"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_percent="0.28"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/scroll_bar_block"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/scroll_bar_block_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.28"/>
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start" />
+</MotionScene>

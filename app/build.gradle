@@ -1,0 +1,150 @@
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.yjkj.property_management'
+    compileSdk 34
+
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.yjkj.property_management"
+        minSdk Version.minSdkVersion
+        targetSdk Version.targetSdkVersion
+        versionCode Version.versionCode
+        versionName Version.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../yjkj-keystore.jks')//签名文件路径
+            storePassword "njyjkj"
+            keyAlias "key0"
+            keyPassword "njyjkj"
+        }
+        release {
+            storeFile file('../yjkj-keystore.jks')//签名文件路径
+            storePassword "njyjkj"
+            keyAlias "key0"
+            keyPassword "njyjkj"
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "property_management.apk"
+                }
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            //minifyEnabled true
+            signingConfig signingConfigs.debug
+        }
+
+        release{
+//            minifyEnabled true
+//            shrinkResources true
+            signingConfig signingConfigs.release
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    dataBinding {
+        enabled true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    api(Android.multidex)
+    api(Android.coreKtx)
+    api(Android.appcompat)
+    api(Android.constraintlayout)
+    api(Android.material)
+    api(Android.recyclerview)
+    api(ThirdParty.glide.glide)
+    api(ThirdParty.glide.transformations)
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.0'
+    implementation platform('androidx.compose:compose-bom:2023.08.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    implementation 'io.github.h07000223:flycoTabLayout:3.0.0'
+    //图表
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    implementation 'com.github.wdsqjq:AndRatingBar:1.0.6'
+
+    kapt(ThirdParty.glide.kapt)
+    api(ThirdParty.rxlifecycle.rxlifecycle)
+    api(ThirdParty.rxlifecycle.components)
+    api(ThirdParty.rxPermissions)
+    api(ThirdParty.okhttp)
+    api(ThirdParty.rxAndroid)
+    api(ThirdParty.cookieJar)
+    api(ThirdParty.eventBus)
+    api(ThirdParty.retrofit.retrofit)
+    api(ThirdParty.retrofit.scalars)
+    api(ThirdParty.retrofit.gson)
+    api(ThirdParty.retrofit.adapter)
+    api(ThirdParty.utilcode)
+    api(Android.navigation.fragmentKtx){
+        exclude group: 'androidx.navigation', module: "navigation-fragment"
+    }
+    api(ThirdParty.easypermission)
+    api(Android.navigation.uiKtx)
+    api(Android.lifecycle.liveDataKtx)
+    api(Android.lifecycle.viewModelKtx)
+    api(Android.lifecycle.commonJava8)
+    api(ThirdParty.smooth_navigation)
+    api(ThirdParty.strict_databinding)
+    api(ThirdParty.unpeek_livedata)
+    api(Kotlin.coroutines.core)
+    api(Kotlin.coroutines.android)
+    api(ThirdParty.mmkv)
+    api(ThirdParty.immersionbar)
+    api(ThirdParty.immersionbar_ktx)
+    api(Kotlin.kotlin_stdlib_jdk8)
+    api(ThirdParty.bindingCollectionAdapter.bindingCollectionAdapter)
+    api(ThirdParty.bindingCollectionAdapter.bindinghCollectionAdapter_rv)
+    api(ThirdParty.bindingCollectionAdapter.bindinghCollectionAdapter_vp)
+    api(ThirdParty.dslTablayout)
+    api(ThirdParty.dslVP2Delegate)
+    api(ThirdParty.dialog.material_dialog)
+    api(ThirdParty.circularprogressbar)
+    api(ThirdParty.zxing.yipianfengye)
+
+}

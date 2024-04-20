@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:bind="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.FirstHomePageViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.page.homePageFragment.firstHomePage.FirstHomePageFragment.Click" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:paddingTop="30dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <!--    住户分析图    -->
+
+        <!--   服务列表     -->
+        <include
+            layout="@layout/household_analysis_layout"
+            bind:click="@{click}"
+            bind:layout_editor_absoluteX="10dp"
+            bind:layout_editor_absoluteY="30dp"
+            bind:viewModel="@{viewModel}" />
+
+        <include
+            layout="@layout/service_layout"
+            bind:viewModel="@{viewModel}"
+            bind:click="@{click}"/>
+
+        <!--    未接来电，充值    -->
+        <include
+            layout="@layout/missed_calls_layout"
+            bind:viewModel="@{viewModel}"
+            bind:click="@{click}"/>
+
+        <!--   管理员     -->
+        <include
+            layout="@layout/administrator_layout"
+            bind:viewModel="@{viewModel}"
+            bind:click="@{click}"/>
+
+        <!--    上班人数，服务人数    -->
+        <include
+            layout="@layout/number_of_employees_layout"
+            bind:viewModel="@{viewModel}"
+            bind:click="@{click}"/>
+
+        <!--    审批待办    -->
+        <include
+            layout="@layout/examine_approve_layout"
+            bind:viewModel="@{viewModel}"
+            bind:click="@{click}"/>
+
+        <!--    订单    -->
+        <include
+            layout="@layout/order_layout"
+            bind:viewModel="@{viewModel}"
+            bind:click="@{click}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.SecondHomePageViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.SecondHomePageFragment.Click" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/scroll_bar_layout"
+        android:background="@drawable/scroll_bar_bg_shape"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/condition_search_layout"
+        android:layout_marginStart="20dp"
+        app:layoutDescription="@xml/scroll_bar_layout_scene">
+
+        <View
+            android:id="@+id/scroll_bar_block"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/scroll_bar_block_shape"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_percent="0.28"/>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

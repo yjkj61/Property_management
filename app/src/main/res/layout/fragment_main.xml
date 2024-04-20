@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yjkj.property_management.ui.main.frag.MainFragmentViewModel" />
+        <variable
+            name="click"
+            type="com.yjkj.property_management.ui.main.frag.MainFragment.Click" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_EBF1F7"
+        tools:context=".ui.main.frag.MainFragment">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/main_vp2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/indicator_view"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/indicator_view"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                android:onClick="@{()->click.exchangeFirstPage()}"
+                android:id="@+id/first_indicator"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/indicator_selected_shape"/>
+
+            <Space
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:onClick="@{()->click.exchangeSecondPage()}"
+                android:id="@+id/second_indicator"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/indicator_unselected_shape"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
