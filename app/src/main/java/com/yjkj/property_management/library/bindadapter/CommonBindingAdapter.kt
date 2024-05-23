@@ -51,6 +51,7 @@ import com.yjkj.property_management.library.utils.ext.loadAvatar
 import com.yjkj.property_management.library.utils.ext.loadCircle
 import com.yjkj.property_management.library.utils.ext.loadSrc
 import com.yjkj.property_management.library.utils.ext.textColor
+import com.yjkj.property_management.library.view.MySpinner
 
 
 /**
@@ -617,7 +618,7 @@ object CommonBindingAdapter {
 
     @JvmStatic
     @BindingAdapter(value = ["spinnerItems","spinnerItemBinding","spinnerItemSelected"], requireAll = false)
-    fun bindSpinnerItems(spinner: Spinner,list : List<String>,itemLayout : Int,itemSelectedListener: OnItemSelectedListener?){
+    fun bindSpinnerItems(spinner: Spinner, list : List<String>, itemLayout : Int, itemSelectedListener: OnItemSelectedListener?){
         val arrayAdapter = ArrayAdapter(spinner.context, itemLayout,list)
         spinner.adapter = arrayAdapter
 

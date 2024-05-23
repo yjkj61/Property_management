@@ -1,5 +1,6 @@
 package com.yjkj.property_management.library.http
 
+import com.yjkj.property_management.entity.ApprovalAgencyCountEntity
 import com.yjkj.property_management.entity.AreaData
 import com.yjkj.property_management.entity.EmployeesNumberEntity
 import com.yjkj.property_management.entity.HomePageDataEntity
@@ -7,6 +8,7 @@ import com.yjkj.property_management.entity.HouseAnalysisEntity
 import com.yjkj.property_management.entity.LoginEntity
 import com.yjkj.property_management.entity.OwnerEntity
 import com.yjkj.property_management.entity.ServingNumberEntity
+import com.yjkj.property_management.entity.UserInfoStatusEntity
 import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -75,7 +77,7 @@ interface ApiService {
      * 审批代办数量
      */
     @GET
-    suspend fun approvalAgencyCount(@Url path: String = ApiContents.approvalAgencyCount):DataResult<Int>
+    suspend fun approvalAgencyCount(@Url path: String = ApiContents.approvalAgencyCount):DataResult<ApprovalAgencyCountEntity>
 
     /**
      * 到期合同数量
@@ -165,12 +167,18 @@ interface ApiService {
                                     @Query("province") province : String = "",
                                     @Query("city") city : String = "",
                                     @Query("area") area : String = "",
-                                    @Query("ownerUsername") ownerUsername : String = "",
+                                    @Query("ownerName") ownerName : String = "",
                                     @Query("ownerCommunity") ownerCommunity : String = "",
                                     @Query("ownerBuilding") ownerBuilding : String = "",
                                     @Query("ownerUnit") ownerUnit :String = "",
                                     @Query("ownerFloor") ownerFloor : String = "",
                                     @Query("ownerRoomNum") ownerRoomNum :String="",
                                     @Query("pageNum") pageNum : Int = 1,
-                                    @Query("pageSize") pageSize : Int = 20):DataResult<MutableList<OwnerEntity>>
+                                    @Query("pageSize") pageSize : Int = 100):DataResult<MutableList<OwnerEntity>>
+
+    /**
+     * 睡眠垫报警数量
+     */
+    @GET
+    suspend fun userInfoStatus(@Url path: String = ApiContents.UserInfoStatus):DataResult<UserInfoStatusEntity>
 }

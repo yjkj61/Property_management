@@ -8,13 +8,18 @@ import com.yjkj.property_management.entity.ContactsUserEntity
 import com.yjkj.property_management.entity.OwnerEntity
 import com.yjkj.property_management.library.base.BaseViewModel
 import com.yjkj.property_management.library.utils.ext.ifNull
+import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.item.PersonalItemViewModel
+import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.repo.PersonalRepo
 import com.yjkj.property_management.ui.page.personal.item.CallLogItemViewModel
 import com.yjkj.property_management.ui.page.personal.item.UserContactsItemViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 class PersonalViewModel : BaseViewModel() {
+    private val repo by lazy {
+        PersonalRepo()
+    }
+
     val userAvatarSrc = ObservableField<Any>(R.mipmap.ic_launcher)
     val userPhoneNumber = ObservableField("13686462131")
     val userName = ObservableField("用户名")
@@ -45,16 +50,16 @@ class PersonalViewModel : BaseViewModel() {
         userGender.set(if(ownerEntity.ownerSex == "0") "女" else "男")
         userAge.set(ownerEntity.ownerAge.toString())
         bedNUmber.set(ownerEntity.ownerBedNum)
-        bedStatus.set(when(ownerEntity.dangerType?.ifNull { -1 }){
-            "0"->"离床"
-            "1"->"心率异常"
-            "2"->"呼吸异常"
-            else->""
-        })
-
-        phStatus.set(ownerEntity.physiologicalState?.ifNull { "" })
-        serviceStatus.set("")
-        nurseLevel.set(ownerEntity.ownerNurseAssess)
+//        bedStatus.set(when(ownerEntity.dangerType?.ifNull { -1 }){
+//            "0"->"离床"
+//            "1"->"心率异常"
+//            "2"->"呼吸异常"
+//            else->""
+//        })
+//
+//        phStatus.set(ownerEntity.physiologicalState?.ifNull { "" })
+//        serviceStatus.set("")
+//        nurseLevel.set(ownerEntity.ownerNurseAssess)
     }
 
     fun initUserContactsItems(){
@@ -104,6 +109,22 @@ class PersonalViewModel : BaseViewModel() {
         callLogItems.add(CallLogItemViewModel(this))
         callLogItems.add(CallLogItemViewModel(this))
         callLogItems.add(CallLogItemViewModel(this))
+    }
+
+    fun getInfo(id : Int) {
+        launch({repo.requestInfo(id)}, onSuccess = {
+            bedStatus.set(when(it.dangerType?.ifNull { "0" }){
+                "0"->"离床"
+                "1"->"心率异常"
+                "2"->"呼吸异常"
+                else->""
+            })
+
+            phStatus.set(it.physiologicalState?.ifNull { "" })
+            serviceStatus.set("")
+            nurseLevel.set(it.ownerNurseAssess)
+        })
+
     }
 
 

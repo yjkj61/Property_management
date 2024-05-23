@@ -1,6 +1,11 @@
 package com.yjkj.property_management.ui.page.homePageFragment.firstHomePage
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.telecom.TelecomManager
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +13,7 @@ import com.kunminx.architecture.ui.page.DataBindingConfig
 import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
 import com.yjkj.property_management.library.base.BaseFragment
+import com.yjkj.property_management.library.base.DataBindingActivity
 import com.yjkj.property_management.library.base.act
 import com.yjkj.property_management.library.base.nav
 import com.yjkj.property_management.library.utils.ext.dpToPx
@@ -18,6 +24,7 @@ import com.yjkj.property_management.ui.login.LoginActivity
 import com.yjkj.property_management.ui.login.LoginViewModel
 import com.yjkj.property_management.ui.page.ownerlist.OwnerListType
 import kotlinx.coroutines.launch
+
 
 /**
 * @Author hxy
@@ -123,10 +130,17 @@ class FirstHomePageFragment : BaseFragment() {
         }
     }
 
+    private fun unReadPhoneList(){
+        var intent = Intent(Intent.ACTION_VIEW)
+        intent?.setType("vnd.android.cursor.dir/calls")
+        startActivity(intent)
+    }
+
     inner class Click{
 
         fun missedCall(){
-            nav().navigate(R.id.missedCallFragment)
+//            nav().navigate(R.id.missedCallFragment)
+            unReadPhoneList()
         }
 
         fun payment(){

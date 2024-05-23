@@ -147,4 +147,6 @@ dependencies {
     api(ThirdParty.circularprogressbar)
     api(ThirdParty.zxing.yipianfengye)
 
+//    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.7.0"))
+
 }

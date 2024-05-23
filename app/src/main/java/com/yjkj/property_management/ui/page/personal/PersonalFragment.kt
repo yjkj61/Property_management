@@ -37,6 +37,7 @@ class PersonalFragment : BaseFragment() {
             val ownerEntity = it.getSerializable(SecondHomePageFragment.OWNER_ENTITY_PARAM) as OwnerEntity
             currOwner = ownerEntity
            viewModel.initUserInfo(ownerEntity)
+            ownerEntity.ownerId?.let { it1 -> viewModel.getInfo(it1) }
         }
         viewModel.initCallLogItems()
         viewModel.initUserContactsItems()

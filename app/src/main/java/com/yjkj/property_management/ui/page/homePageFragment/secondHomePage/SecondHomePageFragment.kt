@@ -151,7 +151,7 @@ class SecondHomePageFragment : BaseFragment() {
                     val totalItemCount = it.itemCount
                     val firstVisibleItemPosition = it.findFirstVisibleItemPosition()
                     if(visibleItemCount > 0 && visibleItemCount + firstVisibleItemPosition == totalItemCount){
-                        viewModel.requestData()
+//                        viewModel.requestData()
                     }
                 }
 

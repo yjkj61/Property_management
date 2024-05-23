@@ -11,7 +11,7 @@ class SecondHomePageRepo : BaseRepository() {
         RetrofitManager.getApiService(ApiService::class.java).requestAreaData()
     }
 
-    private var pageNum = 0
+    private var pageNum = 1
     suspend fun requestData(province : String = "",
                             city : String = "",
                             area : String = "",
@@ -21,8 +21,8 @@ class SecondHomePageRepo : BaseRepository() {
                             ownerUnit :String = "",
                             ownerFloor:String = "",
                             ownerRoomNum:String = "") = flowOf {
-        pageNum++
-        RetrofitManager.getApiService(ApiService::class.java).secondPageOwnerList(province = province, city = city, area = area, ownerUsername = ownerUsername, ownerCommunity = ownerCommunity, ownerBuilding = ownerBuilding, ownerUnit = ownerUnit, ownerFloor = ownerFloor, ownerRoomNum = ownerRoomNum, pageNum = pageNum)
+//        pageNum++
+        RetrofitManager.getApiService(ApiService::class.java).secondPageOwnerList(province = province, city = city, area = area, ownerName = ownerUsername, ownerCommunity = ownerCommunity, ownerBuilding = ownerBuilding, ownerUnit = ownerUnit, ownerFloor = ownerFloor, ownerRoomNum = ownerRoomNum, pageNum = pageNum)
     }
 
 

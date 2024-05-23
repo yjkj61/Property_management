@@ -158,9 +158,9 @@ class FirstHomePageViewModel : BaseViewModel() {
 //        launch({repo.requestTodayRestaurantOrder()}, onSuccess = {
 //            orderItems[3].orderCount.set(it.toString())
 //        })
-//        //审批代办
+        //审批代办
 //        launch({repo.requestApprovalAgencyCount()}, onSuccess = {
-//            approvalAgencyCount.set("$it")
+//            approvalAgencyCount.set("${it.shopAgencyCount + it.servicerAgencyCount + it.projectAgencyCount}")
 //        })
 //        //到期合同数量
 //        launch({repo.requestSearchExpireNumber()}, onSuccess = {
