@@ -65,6 +65,14 @@ android {
         jvmTarget = '1.8'
     }
 
+    viewBinding {
+        enabled = true
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     dataBinding {
         enabled true
     }
@@ -107,6 +115,8 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
     implementation 'com.github.wdsqjq:AndRatingBar:1.0.6'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 
     kapt(ThirdParty.glide.kapt)
     api(ThirdParty.rxlifecycle.rxlifecycle)

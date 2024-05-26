@@ -12,6 +12,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kunminx.architecture.ui.page.DataBindingConfig
 import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
+import com.yjkj.property_management.java.ui.AfActivity
+import com.yjkj.property_management.java.ui.ContractListActivity
+import com.yjkj.property_management.java.ui.DealWithListActivity
+import com.yjkj.property_management.java.ui.DzwlActivity
+import com.yjkj.property_management.java.ui.FoodOrderListActivity
+import com.yjkj.property_management.java.ui.HlfwActivity
+import com.yjkj.property_management.java.ui.NbsActivity
+import com.yjkj.property_management.java.ui.OldOrderListActivity
+import com.yjkj.property_management.java.ui.OtherfwActivity
+import com.yjkj.property_management.java.ui.PropertyOrderListActivity
+import com.yjkj.property_management.java.ui.ShopOrderListActivity
+import com.yjkj.property_management.java.ui.SleepActivity
+import com.yjkj.property_management.java.ui.SosActivity
 import com.yjkj.property_management.library.base.BaseFragment
 import com.yjkj.property_management.library.base.DataBindingActivity
 import com.yjkj.property_management.library.base.act
@@ -76,25 +89,25 @@ class FirstHomePageFragment : BaseFragment() {
             viewModel.serviceItemClickFlow.collect{
                 when(it){
                     "SOS报警"->{
-                        toast(it)
+                        Click().toSos()
                     }
                     "护理服务"->{
-                        toast(it)
+                        Click().toHlfw()
                     }
                     "其他服务"->{
-                        toast(it)
+                        Click().toOtherfw()
                     }
                     "安防报警"->{
-                        toast(it)
+                        Click().toAf()
                     }
                     "尿不湿报警"->{
-                        toast(it)
+                        Click().toNbs()
                     }
                     "睡眠垫报警"->{
                         Click().bedWarningNum()
                     }
                     "电子围栏报警"->{
-                        toast(it)
+                        Click().toDzwl()
                     }
                 }
             }
@@ -178,31 +191,75 @@ class FirstHomePageFragment : BaseFragment() {
         }
 
         fun bedWarningNum(){
-            val bundle = Bundle()
-            bundle.putInt(PARAM_KEY,OwnerListType.OWNER_BED_WARNING)
-            act(AiBedActivity::class.java,bundle,false)
+//            val bundle = Bundle()
+//            bundle.putInt(PARAM_KEY,OwnerListType.OWNER_BED_WARNING)
+//            act(AiBedActivity::class.java,bundle,false)
+            var intent = Intent(activity, SleepActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toSos(){
+            var intent = Intent(activity, SosActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toHlfw(){
+            var intent = Intent(activity, HlfwActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toOtherfw(){
+            var intent = Intent(activity, OtherfwActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toAf(){
+            var intent = Intent(activity, AfActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toNbs(){
+            var intent = Intent(activity, NbsActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toSleep(){
+            var intent = Intent(activity, SleepActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toDzwl(){
+            var intent = Intent(activity, DzwlActivity::class.java)
+            startActivity(intent)
         }
 
         fun todayServiceBookList(){
-            val bundle = Bundle()
-            bundle.putInt(PARAM_KEY,OwnerListType.TODAY_SERVICE_BOOK_LIST)
-            nav().navigate(R.id.ownerListFragment,bundle)
+            var intent = Intent(activity, PropertyOrderListActivity::class.java)
+            startActivity(intent)
         }
         fun todayGoodsOrderList(){
-            val bundle = Bundle()
-            bundle.putInt(PARAM_KEY,OwnerListType.TODAY_OLD_BOOK_LIST)
-            nav().navigate(R.id.ownerListFragment,bundle)
+            var intent = Intent(activity, ShopOrderListActivity::class.java)
+            startActivity(intent)
         }
         fun todayOldBookList(){
-            val bundle = Bundle()
-            bundle.putInt(PARAM_KEY,OwnerListType.TODAY_GOODS_ORDER_LIST)
-            nav().navigate(R.id.ownerListFragment,bundle)
+            var intent = Intent(activity, OldOrderListActivity::class.java)
+            startActivity(intent)
         }
         fun todayRestaurantOrderList(){
-            val bundle = Bundle()
-            bundle.putInt(PARAM_KEY,OwnerListType.TODAY_RESTAURANT_LIST)
-            nav().navigate(R.id.ownerListFragment,bundle)
+            var intent = Intent(activity, FoodOrderListActivity::class.java)
+            startActivity(intent)
         }
+
+        fun toContractList(){
+            var intent = Intent(activity, ContractListActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toDealWithList(){
+            var intent = Intent(activity, DealWithListActivity::class.java)
+            startActivity(intent)
+        }
+
         fun  switchUser() {
             act(LoginActivity::class.java,true)
         }

@@ -11,6 +11,13 @@ import com.kunminx.architecture.ui.page.DataBindingConfig
 import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
 import com.yjkj.property_management.entity.OwnerEntity
+import com.yjkj.property_management.java.ui.AfActivity
+import com.yjkj.property_management.java.ui.DzwlActivity
+import com.yjkj.property_management.java.ui.HlfwActivity
+import com.yjkj.property_management.java.ui.NbsActivity
+import com.yjkj.property_management.java.ui.OtherfwActivity
+import com.yjkj.property_management.java.ui.SleepActivity
+import com.yjkj.property_management.java.ui.SosActivity
 import com.yjkj.property_management.library.base.BaseFragment
 import com.yjkj.property_management.library.base.nav
 import com.yjkj.property_management.library.utils.ext.dpToPx
@@ -93,25 +100,25 @@ class SecondHomePageFragment : BaseFragment() {
                 toast(it)
                 when(it){
                     "SOS报警"->{
-
+                        Click().toSos()
                     }
                     "护理服务"->{
-
+                        Click().toHlfw()
                     }
                     "其他服务"->{
-
+                        Click().toOtherfw()
                     }
                     "安防报警"->{
-
+                        Click().toAf()
                     }
                     "尿不湿报警"->{
-
+                        Click().toNbs()
                     }
                     "睡眠垫报警"->{
-
+//                        Click().bedWarningNum()
                     }
                     "电子围栏报警"->{
-
+                        Click().toDzwl()
                     }
                     "未接来电" ->{
 
@@ -129,6 +136,41 @@ class SecondHomePageFragment : BaseFragment() {
         fun reset(){
             viewModel.resetSearch()
         }
+        fun toSos(){
+            var intent = Intent(activity, SosActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toHlfw(){
+            var intent = Intent(activity, HlfwActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toOtherfw(){
+            var intent = Intent(activity, OtherfwActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toAf(){
+            var intent = Intent(activity, AfActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toNbs(){
+            var intent = Intent(activity, NbsActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toSleep(){
+            var intent = Intent(activity, SleepActivity::class.java)
+            startActivity(intent)
+        }
+
+        fun toDzwl(){
+            var intent = Intent(activity, DzwlActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     inner class Listener{

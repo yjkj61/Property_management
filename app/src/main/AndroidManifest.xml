@@ -39,6 +39,45 @@
         <activity
             android:name=".ui.aibed.AiBedActivity"
             android:exported="false" />
+        <activity
+            android:name=".java.ui.PropertyOrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.FoodOrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.OldOrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.ShopOrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.ContractListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.DealWithListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.SosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.HlfwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.OtherfwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.AfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.NbsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.DzwlActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.SleepActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
