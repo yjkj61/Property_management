@@ -1,12 +1,15 @@
 package com.yjkj.property_management.java.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.yjkj.property_management.databinding.ActivityDetailListBinding;
 import com.yjkj.property_management.java.adapter.SleepAdapter;
@@ -15,8 +18,12 @@ import com.yjkj.property_management.java.bean.SleepBean;
 import com.yjkj.property_management.tools.baseFile.BaseActivity;
 import com.yjkj.property_management.tools.http.API;
 import com.yjkj.property_management.tools.http.OkHttpUtil;
+import com.yjkj.property_management.ui.aibed.AiBedActivity;
+import com.yjkj.property_management.ui.page.ownerlist.OwnerListType;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -30,6 +37,8 @@ import okhttp3.Response;
 public class SleepActivity extends BaseActivity<ActivityDetailListBinding> {
 
     SleepAdapter adapter = null;
+
+    private List<SleepBean.RowsBean> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,16 @@ public class SleepActivity extends BaseActivity<ActivityDetailListBinding> {
         viewBinding.recyclweview.setLayoutManager(linearLayoutManager);
         adapter = new SleepAdapter(this);
         viewBinding.recyclweview.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent();
+                intent.setClass(SleepActivity.this, AiBedActivity.class);
+                intent.putExtra("page_type_param", OwnerListType.OWNER_BED_WARNING);
+                startActivity(intent);
+            }
+        });
 
         getList();
     }
@@ -74,6 +93,8 @@ public class SleepActivity extends BaseActivity<ActivityDetailListBinding> {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            list.clear();
+                            list.addAll(bean.getRows());
                             adapter.setNewData(bean.getRows());
                         }
                     });

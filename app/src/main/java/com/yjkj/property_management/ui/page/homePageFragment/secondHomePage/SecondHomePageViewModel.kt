@@ -3,6 +3,7 @@ package com.yjkj.property_management.ui.page.homePageFragment.secondHomePage
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.yjkj.property_management.BR
 import com.yjkj.property_management.R

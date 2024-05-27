@@ -4,6 +4,7 @@ public class API {
 
     public static String USER_BASE_URL = "http://47.116.36.196:9200/";
     public static String BASE_URL = "http://47.116.36.196:9212/";
+    public static String BASE_URL_9213 = "http://47.116.36.196:9213/";
     public static String BASE_URL_MANAGEMENT = "http://47.116.36.196:9500/";
     public static String BASE_URL_SePropertyManagement = "http://47.116.36.196:9268/";
     public static String BASE_URL_ORDER = "http://47.116.36.196:9889/";
@@ -11,6 +12,17 @@ public class API {
     public static String BASE_URL_contract = "http://47.116.36.196:9301/";
     public static String BASE_URL_WARNING = "http://47.116.36.196:9203/";
 
+
+    public static String owner(String ownerId) {
+        return BASE_URL + "/owner/ownerId?ownerId=" + ownerId;
+    }
+
+    public static String addOwnerInfo = BASE_URL + "/owner/addOwnerInfo";
+    public static String editOwnerInfo = BASE_URL + "/owner/editOwnerInfo";
+
+    public static String medicalHistory = BASE_URL + "/profile/list/history";
+
+    public static String requestFamily = BASE_URL + "/member/getAndroidFamilyList";
 
     //物业工单
     public static String PropertyOrderList = BASE_URL_SePropertyManagement + "SePropertyManagement/todayServiceBookList?";
@@ -31,10 +43,10 @@ public class API {
     public static String DealWithList2 = BASE_URL_SePropertyManagement + "agent/androidList?agentCheckStatus=0&";
 
     //审批待办-项目代办
-    public static String DealWithList3 = BASE_URL_SePropertyManagement + "business/list?";
+    public static String DealWithList3 = BASE_URL_ORDER + "business/list?processStatus=1&";
 
     //合同列表
-    public static String ContractList = BASE_URL_SePropertyManagement + "contract/list?greaterThanPersonnelContract=";
+    public static String ContractList = BASE_URL_contract + "contract/list?greaterThanPersonnelContract=";
 
     //SOS
     public static String SOS = BASE_URL + "order/todayRestaurantOrder?";
@@ -56,5 +68,8 @@ public class API {
 
     //睡眠垫
     public static String sleep = BASE_URL + "ownerPropertyManagement/bedWarnOwnerList?";
+
+    //查房报告-获取问题
+    public static String CFBG_GET_QUESTIONS = BASE_URL_9213 + "inspectionAnswer/selectAnswerList?";
 
 }

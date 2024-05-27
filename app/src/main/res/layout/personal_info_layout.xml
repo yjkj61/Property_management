@@ -244,6 +244,7 @@
 
         <FrameLayout
             android:id="@+id/user_document_info"
+            android:onClick="@{()->click.toUserInfo()}"
             android:layout_width="0dp"
             android:layout_height="59dp"
             android:layout_marginTop="34dp"
@@ -304,7 +305,8 @@
 
         <TextView
             android:id="@+id/report_btn"
-            android:text="查房报告和健康自查"
+            android:onClick="@{()->click.toReport()}"
+            android:text="查房报告"
             android:textSize="14dp"
             android:textColor="@color/color_9279FF"
             android:layout_width="140dp"
@@ -318,6 +320,7 @@
 
         <TextView
             android:id="@+id/ai_check_btn"
+            android:onClick="@{()->click.toAIDoctor()}"
             android:text="AI自查"
             android:textSize="14dp"
             android:textColor="@color/color_9279FF"

@@ -78,6 +78,18 @@
         <activity
             android:name=".java.ui.SleepActivity"
             android:exported="false" />
+        <activity
+            android:name=".java.ui.ContractContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.UserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.WebView"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.CfbgActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

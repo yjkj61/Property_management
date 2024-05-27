@@ -106,6 +106,9 @@ dependencies {
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
+    implementation project(':wheelview')
+    implementation 'androidx.room:room-common:2.6.1'
+    implementation project(':pickerview')
     androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
@@ -117,6 +120,8 @@ dependencies {
     implementation 'com.github.wdsqjq:AndRatingBar:1.0.6'
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
     kapt(ThirdParty.glide.kapt)
     api(ThirdParty.rxlifecycle.rxlifecycle)

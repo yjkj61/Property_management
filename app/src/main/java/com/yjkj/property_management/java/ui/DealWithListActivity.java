@@ -85,9 +85,9 @@ public class DealWithListActivity extends BaseActivity<ActivityDealwithListBindi
                     if (list1.size() != 0) {
                         getList1();
                     }
-                    viewBinding.recyclweview1.setVisibility(View.VISIBLE);
-                    viewBinding.recyclweview2.setVisibility(View.GONE);
-                    viewBinding.recyclweview3.setVisibility(View.GONE);
+                    viewBinding.swipe1.setVisibility(View.VISIBLE);
+                    viewBinding.swipe2.setVisibility(View.GONE);
+                    viewBinding.swipe3.setVisibility(View.GONE);
                 }
             }
         });
@@ -100,9 +100,9 @@ public class DealWithListActivity extends BaseActivity<ActivityDealwithListBindi
                     if (list2.size() != 0) {
                         getList2();
                     }
-                    viewBinding.recyclweview1.setVisibility(View.GONE);
-                    viewBinding.recyclweview2.setVisibility(View.VISIBLE);
-                    viewBinding.recyclweview3.setVisibility(View.GONE);
+                    viewBinding.swipe1.setVisibility(View.GONE);
+                    viewBinding.swipe2.setVisibility(View.VISIBLE);
+                    viewBinding.swipe3.setVisibility(View.GONE);
                 }
             }
         });
@@ -115,24 +115,40 @@ public class DealWithListActivity extends BaseActivity<ActivityDealwithListBindi
                     if (list3.size() != 0) {
                         getList3();
                     }
-                    viewBinding.recyclweview1.setVisibility(View.GONE);
-                    viewBinding.recyclweview2.setVisibility(View.GONE);
-                    viewBinding.recyclweview3.setVisibility(View.VISIBLE);
+                    viewBinding.swipe1.setVisibility(View.GONE);
+                    viewBinding.swipe2.setVisibility(View.GONE);
+                    viewBinding.swipe3.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        viewBinding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        viewBinding.swipe1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 getList1();
+                viewBinding.swipe1.setRefreshing(false);
+            }
+        });
+
+        viewBinding.swipe2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
                 getList2();
+                viewBinding.swipe2.setRefreshing(false);
+            }
+        });
+
+        viewBinding.swipe3.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
                 getList3();
-                viewBinding.swipe.setRefreshing(false);
+                viewBinding.swipe3.setRefreshing(false);
             }
         });
 
         getList1();
+        getList2();
+        getList3();
     }
 
     public void back() {

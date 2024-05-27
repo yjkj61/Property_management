@@ -25,6 +25,7 @@ import com.yjkj.property_management.java.ui.PropertyOrderListActivity
 import com.yjkj.property_management.java.ui.ShopOrderListActivity
 import com.yjkj.property_management.java.ui.SleepActivity
 import com.yjkj.property_management.java.ui.SosActivity
+import com.yjkj.property_management.java.utils.PhoneUtils
 import com.yjkj.property_management.library.base.BaseFragment
 import com.yjkj.property_management.library.base.DataBindingActivity
 import com.yjkj.property_management.library.base.act
@@ -67,7 +68,9 @@ class FirstHomePageFragment : BaseFragment() {
 //            //viewModel.requestHouseholdAnalysis()
 //            viewModel.requestManagement()
 //        }
-
+        if (PhoneUtils.getPermisson(activity)){
+            viewModel.missedCallsCount.set(PhoneUtils.getMissedCallCount(context).toString())
+        }
 
     }
 

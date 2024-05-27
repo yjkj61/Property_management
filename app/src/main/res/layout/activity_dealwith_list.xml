@@ -79,7 +79,7 @@
     </RadioGroup>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe"
+        android:id="@+id/swipe1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp">
@@ -89,17 +89,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclweview2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:layout_height="match_parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclweview3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:layout_height="match_parent" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
