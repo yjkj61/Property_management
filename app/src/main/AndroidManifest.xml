@@ -90,6 +90,12 @@
         <activity
             android:name=".java.ui.CfbgActivity"
             android:exported="false" />
+        <activity
+            android:name=".java.ui.HlListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".java.ui.HealthCardActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

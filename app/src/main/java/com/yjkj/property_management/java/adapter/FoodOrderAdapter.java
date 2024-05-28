@@ -14,7 +14,7 @@ import com.yjkj.property_management.java.bean.PropertyOrderBean;
  * @author Lenovo
  * @time 2024/05/25
  */
-public class FoodOrderAdapter extends BaseQuickAdapter<FoodOrderBean, BaseViewHolder> {
+public class FoodOrderAdapter extends BaseQuickAdapter<FoodOrderBean.RowsDTO, BaseViewHolder> {
 
     Context mcontext;
 
@@ -24,10 +24,10 @@ public class FoodOrderAdapter extends BaseQuickAdapter<FoodOrderBean, BaseViewHo
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, FoodOrderBean item) {
+    protected void convert(BaseViewHolder helper, FoodOrderBean.RowsDTO item) {
         TextView tv_value = helper.getView(R.id.tv_value);
 
-//        tv_value.setText();
+        tv_value.setText("名称：" + item.getRFoodCanteenName() + "\n" + "时间：" + item.getROrderTime() + "\n" + "地址：" + item.getROrderAddress());
     }
 
 }

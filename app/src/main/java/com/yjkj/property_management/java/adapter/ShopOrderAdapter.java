@@ -14,7 +14,7 @@ import com.yjkj.property_management.java.bean.ShopOrderBean;
   * @author Lenovo
   * @time 2024/05/25
   */
-public class ShopOrderAdapter extends BaseQuickAdapter<ShopOrderBean, BaseViewHolder> {
+public class ShopOrderAdapter extends BaseQuickAdapter<ShopOrderBean.RowsDTO.SOrderPoListDTO, BaseViewHolder> {
 
     Context mcontext;
 
@@ -24,10 +24,10 @@ public class ShopOrderAdapter extends BaseQuickAdapter<ShopOrderBean, BaseViewHo
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, ShopOrderBean item) {
+    protected void convert(BaseViewHolder helper, ShopOrderBean.RowsDTO.SOrderPoListDTO item) {
         TextView tv_value = helper.getView(R.id.tv_value);
 
-//        tv_value.setText();
+        tv_value.setText("商家名称：" + item.getBusinessName() + "\n" + "地址：" + item.getAddress() + "\n" + "联系方式：" + item.getPhone() + "\n" + "时间：" + item.getCreateOrderTime());
     }
 
 }

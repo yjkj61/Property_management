@@ -67,7 +67,7 @@ class FirstHomePageViewModel : BaseViewModel() {
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.camera_icon,"0","安防报警")))
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.baby_diapers_icon,"0","尿不湿报警")))
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.mattress_icon,"0","睡眠垫报警")))
-        serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.ele_fence_icon,"0","电子围栏报警")))
+//        serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.ele_fence_icon,"0","电子围栏报警")))
     }
 
     //加载订单网格列表

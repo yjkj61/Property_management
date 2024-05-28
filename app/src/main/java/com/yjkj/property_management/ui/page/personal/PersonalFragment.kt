@@ -9,6 +9,8 @@ import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
 import com.yjkj.property_management.entity.OwnerEntity
 import com.yjkj.property_management.java.ui.CfbgActivity
+import com.yjkj.property_management.java.ui.HealthCardActivity
+import com.yjkj.property_management.java.ui.HlListActivity
 import com.yjkj.property_management.java.ui.SosActivity
 import com.yjkj.property_management.java.ui.UserInfoActivity
 import com.yjkj.property_management.library.base.BaseFragment
@@ -95,7 +97,9 @@ class PersonalFragment : BaseFragment() {
 
         //护理计划记录
         fun nursePlanRecord() {
-
+            var intent = Intent(activity, HlListActivity::class.java)
+            intent.putExtra("id", ownerid)
+            startActivity(intent)
         }
 
         //用户详情
@@ -114,6 +118,20 @@ class PersonalFragment : BaseFragment() {
         //查房报告
         fun toReport() {
             var intent = Intent(activity, CfbgActivity::class.java)
+            startActivity(intent)
+        }
+
+        //健康监测
+        fun toHealthCard() {
+            var intent = Intent(activity, HealthCardActivity::class.java)
+            intent.putExtra("id", ownerid)
+            startActivity(intent)
+        }
+
+        //物联网
+        fun toWulianwang() {
+            var intent = Intent(activity, HealthCardActivity::class.java)
+            intent.putExtra("id", ownerid)
             startActivity(intent)
         }
     }

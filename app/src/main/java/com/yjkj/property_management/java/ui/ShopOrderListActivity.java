@@ -6,9 +6,12 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.gson.Gson;
 import com.yjkj.property_management.databinding.ActivityDetailListBinding;
 import com.yjkj.property_management.java.adapter.PropertyOrderAdapter;
 import com.yjkj.property_management.java.adapter.ShopOrderAdapter;
+import com.yjkj.property_management.java.bean.OldOrderBean;
+import com.yjkj.property_management.java.bean.ShopOrderBean;
 import com.yjkj.property_management.tools.baseFile.BaseActivity;
 import com.yjkj.property_management.tools.http.API;
 import com.yjkj.property_management.tools.http.OkHttpUtil;
@@ -66,8 +69,15 @@ public class ShopOrderListActivity extends BaseActivity<ActivityDetailListBindin
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                Log.i("getList", response.body().string());
-
+                ShopOrderBean bean = new Gson().fromJson(response.body().string(), ShopOrderBean.class);
+                if (bean.getCode() == 200){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.setNewData(bean.getRows().get(0).getSOrderPoList());
+                        }
+                    });
+                }
             }
         });
     }

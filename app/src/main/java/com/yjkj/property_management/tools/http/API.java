@@ -31,10 +31,10 @@ public class API {
     public static String OldOrderList = BASE_URL_SePropertyManagement + "SePropertyManagement/todayOldBookList?";
 
     //商城工单
-    public static String ShopOrderList = BASE_URL_SePropertyManagement + "order/todayGoodsOrderList?";
+    public static String ShopOrderList = BASE_URL_ORDER + "order/list?isToday=1&";
 
     //餐饮工单
-    public static String FoodOrderList = BASE_URL_SePropertyManagement + "order/todayRestaurantOrder?";
+    public static String FoodOrderList = BASE_URL_Restaurant + "order/todayRestaurantOrderList?";
 
     //审批待办-商家代办
     public static String DealWithList1 = BASE_URL_ORDER + "business/list?processStatus=1&";
@@ -71,5 +71,14 @@ public class API {
 
     //查房报告-获取问题
     public static String CFBG_GET_QUESTIONS = BASE_URL_9213 + "inspectionAnswer/selectAnswerList?";
+
+    //查房报告-新增报告
+    public static String CFBG_ADD_QUESTIONS = BASE_URL_9213 + "inspectionReport";
+
+    //护理列表
+    public static String HL_LIST = BASE_URL_SePropertyManagement + "book/nursingPlanRecord/";
+
+    //健康监测
+    public static String Health_Card = BASE_URL_9213 + "oxygen/lastPhysicalExamination/";
 
 }

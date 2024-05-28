@@ -109,9 +109,6 @@ class FirstHomePageFragment : BaseFragment() {
                     "睡眠垫报警"->{
                         Click().bedWarningNum()
                     }
-                    "电子围栏报警"->{
-                        Click().toDzwl()
-                    }
                 }
             }
         }

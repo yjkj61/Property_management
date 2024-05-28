@@ -87,7 +87,7 @@ class SecondHomePageViewModel : BaseViewModel() {
         serviceItems.add(ServiceItemViewModel(this,Triple(R.drawable.nurse_icon, "0", "护理服务")))
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.baby_diapers_icon, "0", "尿不湿报警")))
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.orthers_service_icon, "0", "其他服务")))
-        serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.ele_fence_icon, "0", "电子围栏报警")))
+//        serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.ele_fence_icon, "0", "电子围栏报警")))
     }
 
     fun launchSearch() {

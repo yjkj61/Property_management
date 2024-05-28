@@ -14,7 +14,7 @@ import com.yjkj.property_management.java.bean.PropertyOrderBean;
   * @author Lenovo
   * @time 2024/05/25
   */
-public class OldOrderAdapter extends BaseQuickAdapter<OldOrderBean, BaseViewHolder> {
+public class OldOrderAdapter extends BaseQuickAdapter<OldOrderBean.RowsDTO, BaseViewHolder> {
 
     Context mcontext;
 
@@ -24,10 +24,11 @@ public class OldOrderAdapter extends BaseQuickAdapter<OldOrderBean, BaseViewHold
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, OldOrderBean item) {
+    protected void convert(BaseViewHolder helper, OldOrderBean.RowsDTO item) {
         TextView tv_value = helper.getView(R.id.tv_value);
 
-//        tv_value.setText();
+        tv_value.setText("名称：" + item.getOwnerName() + "\n" + "服务名称：" + item.getAgentName() + "\n" + "服务人员：" + item.getWorkerName()
+                + "\n" + "服务类型：" + item.getProjectName() + "\n" + "服务地址：" + item.getOwnerAddress());
     }
 
 }
