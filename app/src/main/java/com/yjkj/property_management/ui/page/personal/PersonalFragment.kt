@@ -9,6 +9,7 @@ import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
 import com.yjkj.property_management.entity.OwnerEntity
 import com.yjkj.property_management.java.ui.CfbgActivity
+import com.yjkj.property_management.java.ui.HardSoftDeviceActivity
 import com.yjkj.property_management.java.ui.HealthCardActivity
 import com.yjkj.property_management.java.ui.HlListActivity
 import com.yjkj.property_management.java.ui.SosActivity
@@ -130,7 +131,7 @@ class PersonalFragment : BaseFragment() {
 
         //物联网
         fun toWulianwang() {
-            var intent = Intent(activity, HealthCardActivity::class.java)
+            var intent = Intent(activity, HardSoftDeviceActivity::class.java)
             intent.putExtra("id", ownerid)
             startActivity(intent)
         }

@@ -96,6 +96,9 @@
         <activity
             android:name=".java.ui.HealthCardActivity"
             android:exported="false" />
+        <activity
+            android:name=".java.ui.HardSoftDeviceActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

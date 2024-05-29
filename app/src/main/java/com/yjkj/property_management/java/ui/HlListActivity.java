@@ -72,16 +72,15 @@ public class HlListActivity extends BaseActivity<ActivityDetailListBinding> {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                Log.i("getList", response.body().string());
-//                HlListBean bean = new Gson().fromJson(response.body().string(), HlListBean.class);
-//                if (bean.getCode() == 200){
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            adapter.setNewData(bean.getRows());
-//                        }
-//                    });
-//                }
+                HlListBean bean = new Gson().fromJson(response.body().string(), HlListBean.class);
+                if (bean.getCode() == 200){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.setNewData(bean.getData());
+                        }
+                    });
+                }
             }
         });
     }

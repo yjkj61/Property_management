@@ -213,7 +213,7 @@ public class SleepBean {
         private Object ownerDoctorPhone;
         private Object ownerSelfAssess;
         private Object ownerNurseAssess;
-        private int markerId;
+        private Long markerId;
         private Object markerName;
         private int userId;
         private String userType;
@@ -777,11 +777,11 @@ public class SleepBean {
             this.ownerNurseAssess = ownerNurseAssess;
         }
 
-        public int getMarkerId() {
+        public Long getMarkerId() {
             return markerId;
         }
 
-        public void setMarkerId(int markerId) {
+        public void setMarkerId(Long markerId) {
             this.markerId = markerId;
         }
 

@@ -74,7 +74,9 @@ public class ShopOrderListActivity extends BaseActivity<ActivityDetailListBindin
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            adapter.setNewData(bean.getRows().get(0).getSOrderPoList());
+                            if (bean.getRows().size() != 0){
+                                adapter.setNewData(bean.getRows().get(0).getSOrderPoList());
+                            }
                         }
                     });
                 }
