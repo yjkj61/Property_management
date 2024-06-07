@@ -14,7 +14,7 @@ public class API {
 
 
     public static String owner(String ownerId) {
-        return BASE_URL + "/owner/ownerId?ownerId=" + ownerId;
+        return BASE_URL + "owner/ownerId?ownerId=" + ownerId;
     }
 
     public static String addOwnerInfo = BASE_URL + "/owner/addOwnerInfo";
@@ -76,7 +76,7 @@ public class API {
     public static String CFBG_ADD_QUESTIONS = BASE_URL_9213 + "inspectionReport";
 
     //护理列表
-    public static String HL_LIST = BASE_URL_SePropertyManagement + "book/nursingPlanRecord/";
+    public static String HL_LIST = BASE_URL_SePropertyManagement + "book/nursingPlanRecord";
 
     //健康监测
     public static String Health_Card = BASE_URL_9213 + "oxygen/lastPhysicalExamination/";

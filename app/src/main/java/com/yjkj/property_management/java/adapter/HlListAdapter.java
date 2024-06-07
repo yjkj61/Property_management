@@ -14,7 +14,7 @@ import com.yjkj.property_management.java.bean.HlListBean;
  * @author Lenovo
  * @time 2023/10/17
  */
-public class HlListAdapter extends BaseQuickAdapter<HlListBean.DataDTO, BaseViewHolder> {
+public class HlListAdapter extends BaseQuickAdapter<HlListBean, BaseViewHolder> {
 
     Context mcontext;
 
@@ -24,12 +24,12 @@ public class HlListAdapter extends BaseQuickAdapter<HlListBean.DataDTO, BaseView
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, HlListBean.DataDTO item) {
+    protected void convert(BaseViewHolder helper, HlListBean item) {
         TextView tv_value = helper.getView(R.id.tv_value);
 
         tv_value.setText("姓名：" + item.getOwnerName() + "\n" + "编号：" + item.getBookNum()
-                + "\n" + "服务项目：" + item.getProjectName() + "\n" + "开始时间：" + item.getServiceBookStartTime()
-                + "\n" + "结束时间：" + item.getServiceBookEndTime());
+                + "\n" + "服务项目：" + item.getProjectName() + "\n" + "开始时间：" + item.getBookStartTime()
+                + "\n" + "结束时间：" + item.getBookFinishTime());
     }
 
 }

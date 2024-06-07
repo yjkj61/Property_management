@@ -29,13 +29,16 @@ import com.yjkj.property_management.java.utils.PhoneUtils
 import com.yjkj.property_management.library.base.BaseFragment
 import com.yjkj.property_management.library.base.DataBindingActivity
 import com.yjkj.property_management.library.base.act
+import com.yjkj.property_management.library.base.actToJava
 import com.yjkj.property_management.library.base.nav
+import com.yjkj.property_management.library.base.toActivity
 import com.yjkj.property_management.library.utils.ext.dpToPx
 import com.yjkj.property_management.library.utils.ext.toast
 import com.yjkj.property_management.library.view.GridSpaceItemDecoration
 import com.yjkj.property_management.ui.aibed.AiBedActivity
 import com.yjkj.property_management.ui.login.LoginActivity
 import com.yjkj.property_management.ui.login.LoginViewModel
+import com.yjkj.property_management.ui.main.act.MainActivity
 import com.yjkj.property_management.ui.page.ownerlist.OwnerListType
 import kotlinx.coroutines.launch
 
@@ -199,6 +202,7 @@ class FirstHomePageFragment : BaseFragment() {
         }
 
         fun toSos(){
+//            actToJava(SosActivity::class.java, false)
             var intent = Intent(activity, SosActivity::class.java)
             startActivity(intent)
         }

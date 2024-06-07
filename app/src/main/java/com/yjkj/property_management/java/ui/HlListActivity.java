@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.yjkj.property_management.databinding.ActivityDetailListBinding;
 import com.yjkj.property_management.java.adapter.AfAdapter;
 import com.yjkj.property_management.java.adapter.HlListAdapter;
@@ -16,7 +17,11 @@ import com.yjkj.property_management.tools.baseFile.BaseActivity;
 import com.yjkj.property_management.tools.http.API;
 import com.yjkj.property_management.tools.http.OkHttpUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -51,7 +56,7 @@ public class HlListActivity extends BaseActivity<ActivityDetailListBinding> {
         getList();
     }
 
-    public void back(){
+    public void back() {
         finish();
     }
 
@@ -62,9 +67,16 @@ public class HlListActivity extends BaseActivity<ActivityDetailListBinding> {
     private int ownerid = 0;
 
     //护理列表
-    private void getList(){
+    private void getList() {
         ownerid = getIntent().getIntExtra("id", 0);
-        OkHttpUtil.getInstance().doGet(API.HL_LIST + ownerid, new Callback() {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("ownerId", ownerid + "");
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+        OkHttpUtil.getInstance().doPost(API.HL_LIST, jsonObject.toString(), new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
 
@@ -72,15 +84,14 @@ public class HlListActivity extends BaseActivity<ActivityDetailListBinding> {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                HlListBean bean = new Gson().fromJson(response.body().string(), HlListBean.class);
-                if (bean.getCode() == 200){
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            adapter.setNewData(bean.getData());
-                        }
-                    });
-                }
+//                Log.i("getList", response.body().string());
+                List<HlListBean> bean = new Gson().fromJson(response.body().string(), new TypeToken<List<HlListBean>>(){}.getType());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.setNewData(bean);
+                    }
+                });
             }
         });
     }
