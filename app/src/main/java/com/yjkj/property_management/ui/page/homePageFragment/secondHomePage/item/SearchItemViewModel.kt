@@ -42,7 +42,13 @@ class SearchItemViewModel(val viewModel: SecondHomePageViewModel,val type : Stri
     fun isEmpty():Boolean = editValue.get().isNullOrEmpty()
 
     fun getValue():String{
-        return editValue.get().toString().ifNull { "" }
+//        return editValue.get().toString().ifNull { "" }
+        if ("null".equals(editValue.get().toString())){
+            return ""
+        }else{
+            return editValue.get().toString();
+        }
+
     }
 
     fun clear(){

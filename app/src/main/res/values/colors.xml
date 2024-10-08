@@ -24,6 +24,20 @@
     <color name="color_ECF2FF">#ECF2FF</color>
     <color name="status_bar_color">#EAE9F9</color>
     <color name="color_FFE5D6">#FFE5D6</color>
+    <color name="blue47">#47C4FF</color>
+    <color name="blue6c">#6CB3FF</color>
+    <color name="blue4c">#4C9EEB</color>
+    <color name="blue02">#0256FF</color>
+    <color name="blue00">#0089FF</color>
 
     <color name="color_D9D9D9">#D9D9D9</color>
+
+    <color name="chat_box">#ffffff</color>
+    <color name="accent_color">#05c160</color>
+
+    <color name="background_gray1">#EDEDED</color>
+    <color name="background_gray3">#D4D4D4</color>
+    <color name="background_gray5">#c9c9c9</color>
+    <color name="view_bg">#E7E7E7</color>
+
 </resources>

@@ -288,6 +288,14 @@ fun BaseFragment.act(clazz: Class<out BaseActivity>, finish : Boolean = false){
     }
 }
 
+fun BaseFragment.actToJava(clazz: Class<out com.yjkj.property_management.tools.baseFile.BaseActivity<*>>, finish : Boolean = false){
+    val intent = Intent(activity,clazz)
+    activity?.startActivity(intent)
+    if(finish){
+        activity?.finish()
+    }
+}
+
 /**
  * intent带值跳转
  */

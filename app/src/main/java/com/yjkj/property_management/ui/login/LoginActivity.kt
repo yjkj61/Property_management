@@ -1,10 +1,12 @@
 package com.yjkj.property_management.ui.login
 
+import android.content.Intent
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import com.kunminx.architecture.ui.page.DataBindingConfig
 import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
+import com.yjkj.property_management.java.ui.SosActivity
 import com.yjkj.property_management.library.base.BaseActivity
 import com.yjkj.property_management.library.base.toActivity
 import com.yjkj.property_management.library.utils.ext.toast

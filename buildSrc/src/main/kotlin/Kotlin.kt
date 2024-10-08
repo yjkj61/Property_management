@@ -7,7 +7,7 @@ object Kotlin {
     /**
      * kotlin标准库
      */
-    const val kotlinVersion = "1.7.0"
+    const val kotlinVersion = "1.8.0"
     const val kotlin_stdlib_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     /**

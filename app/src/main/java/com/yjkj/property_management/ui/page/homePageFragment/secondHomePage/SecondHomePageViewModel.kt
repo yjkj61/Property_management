@@ -3,17 +3,17 @@ package com.yjkj.property_management.ui.page.homePageFragment.secondHomePage
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.yjkj.property_management.BR
 import com.yjkj.property_management.R
 import com.yjkj.property_management.entity.City
 import com.yjkj.property_management.entity.District
 import com.yjkj.property_management.library.base.BaseViewModel
-import com.yjkj.property_management.library.utils.ext.toast
 import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.item.PersonalItemViewModel
 import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.item.SearchItemViewModel
 import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.item.ServiceItemViewModel
+import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.repo.PersonalRepo
 import com.yjkj.property_management.ui.page.homePageFragment.secondHomePage.repo.SecondHomePageRepo
 import kotlinx.coroutines.flow.MutableSharedFlow
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -24,6 +24,10 @@ class SecondHomePageViewModel : BaseViewModel() {
     private val repo by lazy {
         SecondHomePageRepo()
     }
+
+    var province = "";
+    var city = "";
+    var area = "";
 
     //条件搜索相关
     val searchItemDirection = ObservableField<ItemDecoration>()
@@ -83,20 +87,20 @@ class SecondHomePageViewModel : BaseViewModel() {
         serviceItems.add(ServiceItemViewModel(this,Triple(R.drawable.nurse_icon, "0", "护理服务")))
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.baby_diapers_icon, "0", "尿不湿报警")))
         serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.orthers_service_icon, "0", "其他服务")))
-        serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.ele_fence_icon, "0", "电子围栏报警")))
+//        serviceItems.add(ServiceItemViewModel(this, Triple(R.drawable.ele_fence_icon, "0", "电子围栏报警")))
     }
 
     fun launchSearch() {
-        val filter = searchItems.filter {
-            it.isNotEmpty()
-        }
-
-        if (filter.isEmpty()) {
-            return
-        }
-        val province = searchItems.first().getValue()
-        val city = searchItems[1].getValue()
-        val area = searchItems[2].getValue()
+//        val filter = searchItems.filter {
+//            it.isNotEmpty()
+//        }
+//
+//        if (filter.isEmpty()) {
+//            return
+//        }
+//        val province = searchItems[0].getValue()
+//        val city = searchItems[1].getValue()
+//        val area = searchItems[2].getValue()
         val ownerUsername = searchItems[3].getValue()
         val ownerCommunity = searchItems[4].getValue()
         val ownerBuilding = searchItems[5].getValue()
@@ -135,6 +139,7 @@ class SecondHomePageViewModel : BaseViewModel() {
 
 
         searchItems[0].OnSpinnerProvinceItemSelected {
+            province = it.first
             val citys = it.second
             val cityMap = mutableMapOf<String,List<District>>()
             citys.forEach {
@@ -144,13 +149,14 @@ class SecondHomePageViewModel : BaseViewModel() {
             item.setCityData(cityMap)
         }
         searchItems[1].OnSpinnerCityItemSelected {
+            city = it.first
             val district = it.second
             val item = searchItems[2]
             item.setDistrictsData(district)
         }
 
         searchItems[2].OnSpinnerDistrictsItemSelected { s, s2 ->
-
+            area = s;
         }
 
 

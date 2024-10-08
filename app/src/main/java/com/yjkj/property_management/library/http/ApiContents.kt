@@ -61,5 +61,7 @@ object ApiContents {
     const val todayRestaurantOrderList = "${BASE_URL_Restaurant}order/todayRestaurantOrder"
     //second page
     const val secondPageOwnerList = "${BASE_URL}owner/list"
+    //user info status
+    var UserInfoStatus = "${BASE_URL}owner/"
 
 }

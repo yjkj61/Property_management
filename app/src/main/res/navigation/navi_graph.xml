@@ -34,4 +34,5 @@
         android:name="com.yjkj.property_management.ui.page.ownerlist.OwnerListFragment"
         android:label="fragment_owner_list"
         tools:layout="@layout/fragment_owner_list" />
+
 </navigation>
